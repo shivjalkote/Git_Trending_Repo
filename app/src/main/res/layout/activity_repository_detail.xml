@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="gitRepository"
+            type="com.git.trending.data.model.GitRepository" />
+    </data>
+
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="40dp">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/purple_500"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:theme="@style/AppTheme.AppBarOverlay"
+                app:titleTextAppearance="@style/ToolbarTextAppearance" />
+
+            <com.git.trending.util.CircularImageView
+                android:id="@+id/imageViewOwner"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="60dp"
+                android:loadImage="@{gitRepository.owner.avatarUrl}"
+                android:src="@mipmap/ic_launcher"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+            <TextView
+                android:id="@+id/textViewOwnerName"
+                style="@style/DefaultTextTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@{gitRepository.owner.name}"
+                android:textColor="@color/red"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewOwner" />
+
+            <TextView
+                android:id="@+id/textViewDescription"
+                style="@style/DefaultTextDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:gravity="center"
+                android:text="@{gitRepository.description}"
+                android:textColor="@color/text_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewOwnerName" />
+
+
+            <TextView
+                android:id="@+id/textViewStarCount"
+                style="@style/DefaultTextTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/white"
+                android:drawablePadding="10dp"
+                android:elevation="8dp"
+                android:padding="12dp"
+                android:text="@{gitRepository.starCount>1?gitRepository.starCount+` Stars`:gitRepository.starCount+` Star`}"
+                android:viewVisibility="@{gitRepository.starCount>0}"
+                android:visibility="gone"
+                app:drawableLeftCompat="@drawable/ic_baseline_star_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewDescription"
+                app:layout_goneMarginTop="8dp" />
+
+            <TextView
+                android:id="@+id/textViewForkCount"
+                style="@style/DefaultTextTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/white"
+                android:drawablePadding="10dp"
+                android:elevation="8dp"
+                android:padding="12dp"
+                android:text="@{gitRepository.forks>1? gitRepository.forks +` Forks`: gitRepository.forks +` Fork`}"
+                android:viewVisibility="@{gitRepository.forks>0}"
+                app:drawableLeftCompat="@drawable/ic_baseline_device_hub_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewStarCount"
+                app:layout_goneMarginTop="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewForkCount" />
+
+
+            <ProgressBar
+                android:id="@+id/progressBarLoading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="20dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/toolbar" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
