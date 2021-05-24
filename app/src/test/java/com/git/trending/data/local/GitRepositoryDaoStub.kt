@@ -4,7 +4,7 @@ import com.git.trending.data.local.dao.GitRepositoryDao
 import com.git.trending.data.local.entity.GitRepositoryEntity
 
 
-/**Created by Shiv Jalkote on 19-May-2021. **/
+/**Created by Shiv Jalkote on 21-May-2021. **/
 
 class GitRepositoryDaoStub : GitRepositoryDao {
 

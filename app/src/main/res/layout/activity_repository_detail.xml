@@ -2,7 +2,6 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="gitRepository"
             type="com.git.trending.data.model.GitRepository" />
@@ -116,7 +115,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewForkCount" />
-
 
             <ProgressBar
                 android:id="@+id/progressBarLoading"

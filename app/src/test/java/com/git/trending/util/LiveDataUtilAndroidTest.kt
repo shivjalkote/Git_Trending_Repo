@@ -1,7 +1,7 @@
 package com.git.trending.util
 
 
-/**Created by Shiv Jalkote on 13-May-2021. **/
+/**Created by Shiv Jalkote on 21-May-2021. **/
 
 
 import androidx.annotation.VisibleForTesting
