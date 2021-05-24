@@ -12,16 +12,23 @@ App Architecture :
 App Packages :
  1) base :- Contain base classes that provides comman functionality.
  2) data : Contains
+
      i)local 
+     
         a) dao :- Contains Dao classes 
         b) entity :- Contains entities which is used hold data
         c) mapper :- Contain mapper classes which coverts data from entity to DTO classes and vice versa.
+        
      ii) model :- DTO classes used for holding data according to your Ui requirements. 
+     
      iii) remote :
+     
         a) api :- Contains api classes which make api call using Retofit.
         b) mapper :- Contain mapper classes which coverts data from api response to DTO classes and vice versa.
         c) responses :- Contains api response classes
+        
      iv) repository  :- Contains repository classes which trigger api request and save data inside local storage.
+     
  3) di : 
      i) module : Contain module classes to tell Hilt how to create object.
  4) ui :
